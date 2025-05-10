@@ -39,7 +39,7 @@ Login do usuário no site.
 #### 📥 Requisição
 ```json
 {
-	"email": "exemplo@gmail.com",
+  "email": "exemplo@gmail.com",
   "password": "exemplo"
 }
 ```
@@ -47,11 +47,11 @@ Login do usuário no site.
 #### 📤 Resposta
 ```json
 {
-	"user": {
-		"name": "Luis",
-		"email": "exemplo@gmail.com"
-	},
-	"token": "SEU_TOKEN_JWT"
+  "user": {
+    "name": "Luis",
+    "email": "exemplo@gmail.com"
+  },
+  "token": "SEU_TOKEN_JWT"
 }
 ```
 
@@ -61,8 +61,8 @@ Registrar usuário no site.
 #### 📥 Requisição
 ```json
 {
-	"name": "exemplo",
-	"email": "exemplo@gmail.com",
+  "name": "exemplo",
+  "email": "exemplo@gmail.com",
   "password": "exemplo"
 }
 ```
@@ -70,11 +70,11 @@ Registrar usuário no site.
 #### 📤 Resposta
 ```json
 {
-	"user": {
-		"name": "Luis",
-		"email": "exemplo@gmail.com"
-	},
-	"token": "SEU_TOKEN_JWT"
+  "user": {
+     "name": "Luis",
+     "email": "exemplo@gmail.com"
+   },
+  "token": "SEU_TOKEN_JWT"
 }
 ```
 
