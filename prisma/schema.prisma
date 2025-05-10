@@ -7,8 +7,42 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  password  String
+  urls      Url[] @relation("userUrl")
+
+
+  updated_at     DateTime @updatedAt
+  status_account Boolean @default(true)
+  created_at     DateTime @default(now())
+  last_login     DateTime @default(now())
+}
+
 model Url {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   original  String
   shortCode String   @unique
+  userId    String?   @db.ObjectId
+  user      User?     @relation("userUrl", fields: [userId], references: [id])
+  ip        String? 
+  clicks    Click[] @relation("urlClick")
+
+
+  updated_at DateTime @updatedAt
+  status_url Boolean @default(true)
+  created_at DateTime @default(now())
+}
+
+model Click {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  url       Url?      @relation("urlClick", fields: [urlId], references: [id])
+  timestamp DateTime @default(now())
+  urlId     String?   @db.ObjectId
+  ip        String
+  userAgent String
+  referer   String?
+  country   String?
 }
