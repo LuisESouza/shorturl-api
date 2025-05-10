@@ -19,7 +19,7 @@ export class ShortenerService {
     if (exists) return this.createShortUrl(originalUrl, userId, ip);
     await this.prisma.url.create({
       data: {original: originalUrl, shortCode: code, userId: userId, ip: ip,}});
-    return `http://localhost:4004/${code}`;
+    return `https://shorturl-api.onrender.com/${code}`;
   }
 
   async getOriginalUrl(code: string): Promise<string | null> {
