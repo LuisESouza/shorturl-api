@@ -1,8 +1,10 @@
-import { Module } from '@nestjs/common';
 import { ShortenerModule } from './shortener/shortener.module';
+import { LinksModule } from './links/links.module';
+import { UsersModule } from './users/users.module';
+import { Module } from '@nestjs/common';
 
 @Module({
-  imports: [ShortenerModule],
+  imports: [ShortenerModule, UsersModule, LinksModule],
   providers: [],
 })
 export class AppModule {}
